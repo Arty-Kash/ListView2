@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListView"
+             x:Class="ListView.MainPage">
+    <ContentPage.Content>
+        <StackLayout Margin="0, 40, 0, 0">
+            
+            <!-- Add a new book to the book list "BookListView" -->
+            <Button Text="Add New Book" Clicked="AddNewBook" />
+            <Entry x:Name="Entry_Title" Placeholder="new book Title" Keyboard="Text" />
+            <Entry x:Name="Entry_Author" Placeholder="new book Author" Keyboard="Text" />
+
+            <!-- Create a book List "BookListView."
+                 Call "OnTap" method, if one of the books is tapped -->
+            <ListView x:Name="BookListView" ItemTapped="OnTap">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell
+                            Text="{Binding Title, Mode=TwoWay}" 
+                            Detail="{Binding Author, Mode=TwoWay}" 
+                            TextColor="Black" DetailColor="DimGray" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
